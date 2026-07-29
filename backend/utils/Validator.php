@@ -9,8 +9,20 @@ class Validator {
         $this->data = $data;
     }
 
+    public static function sanitize(array $data): array {
+        foreach ($data as $key => $value) {
+            if (is_string($value)) {
+                $data[$key] = trim(strip_tags($value));
+            } elseif (is_array($value)) {
+                $data[$key] = self::sanitize($value);
+            }
+        }
+        return $data;
+    }
+
     public function required(string $field): static {
-        if (empty($this->data[$field])) {
+        $value = $this->data[$field] ?? null;
+        if ($value === null || (is_string($value) && trim($value) === '')) {
             $this->errors[] = "$field is required";
         }
         return $this;

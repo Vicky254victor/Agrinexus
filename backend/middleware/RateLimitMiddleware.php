@@ -22,7 +22,10 @@ class RateLimitMiddleware {
 
         if ($count >= self::MAX_REQUESTS) {
             http_response_code(429);
-            die(json_encode(['error' => 'Too many requests — please slow down']));
+            header('Content-Type: application/json');
+            header('Retry-After: ' . self::WINDOW_SEC);
+            echo json_encode(['success' => false, 'message' => 'Too many requests — please slow down']);
+            exit;
         }
 
         apcu_inc($key);
