@@ -16,7 +16,7 @@ export function Sidebar() {
   const nav = role === "farmer" ? FARMER_NAV : BUYER_NAV;
 
   return (
-    <aside className="w-60 min-h-screen flex flex-col flex-shrink-0" style={{ background: GREEN }}>
+    <aside className="w-full max-w-full md:w-60 md:min-h-screen flex flex-col flex-shrink-0" style={{ background: GREEN }}>
       <div className="p-5 pb-4 border-b border-white/10">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: AMBER }}>

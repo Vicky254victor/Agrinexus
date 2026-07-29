@@ -9,7 +9,7 @@ interface DashboardLayoutProps {
 
 export function DashboardLayout({ children, title }: DashboardLayoutProps) {
   return (
-    <div className="flex h-screen overflow-hidden bg-background">
+    <div className="flex min-h-screen flex-col md:flex-row overflow-hidden bg-background">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Topbar title={title} />

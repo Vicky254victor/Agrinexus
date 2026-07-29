@@ -23,6 +23,10 @@ try {
     require_once __DIR__ . '/routes/api.php';
 
     header('Content-Type: application/json');
+    header('X-Frame-Options: DENY');
+    header('X-Content-Type-Options: nosniff');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header('Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()');
 
     RateLimitMiddleware::handle();
 

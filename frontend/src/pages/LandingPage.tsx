@@ -30,34 +30,34 @@ export function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="grid grid-cols-2 min-h-[560px]">
-        <div className="flex flex-col justify-center px-16 py-16">
+      <section className="grid gap-10 grid-cols-1 md:grid-cols-2 min-h-[560px] px-4 md:px-0 py-10 md:py-16">
+        <div className="flex flex-col justify-center max-w-xl mx-auto md:mx-0">
           <div className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-7" style={{ background: GREEN + "15", color: GREEN }}>
             <Leaf className="w-3 h-3" /> Kenya&apos;s #1 AgriTech Platform
           </div>
-          <h1 className="text-5xl font-black leading-[1.12] mb-5" style={{ color: "#1A2E22", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <h1 className="text-4xl sm:text-5xl font-black leading-tight sm:leading-[1.12] mb-5" style={{ color: "#1A2E22", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             From Farm<br />to Market,<br /><span style={{ color: GREEN }}>Digitally.</span>
           </h1>
           <p className="text-base text-muted-foreground mb-8 max-w-sm leading-relaxed">
             Connect directly with buyers. Real-time prices, IoT monitoring, and AI-powered crop intelligence — all in one platform.
           </p>
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <button
               onClick={() => setPage("login")}
-              className="px-7 py-3 rounded-xl text-white font-semibold transition-opacity hover:opacity-90 flex items-center gap-2"
+              className="w-full sm:w-auto px-7 py-3 rounded-xl text-white font-semibold transition-opacity hover:opacity-90 flex items-center justify-center gap-2"
               style={{ background: GREEN }}
             >
               <Leaf className="w-4 h-4" /> I&apos;m a Farmer
             </button>
             <button
               onClick={() => setPage("login")}
-              className="px-7 py-3 rounded-xl font-semibold border-2 transition-colors hover:bg-amber-50 flex items-center gap-2"
+              className="w-full sm:w-auto px-7 py-3 rounded-xl font-semibold border-2 transition-colors hover:bg-amber-50 flex items-center justify-center gap-2"
               style={{ borderColor: AMBER, color: AMBER }}
             >
               <ShoppingBag className="w-4 h-4" /> I&apos;m a Buyer
             </button>
           </div>
-          <div className="flex gap-8 mt-10 pt-8 border-t border-border">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 pt-8 border-t border-border">
             {[["12K+", "Farmers"], ["8K+", "Buyers"], ["KSh 2B+", "Transacted"]].map(([v, l]) => (
               <div key={l}>
                 <p className="text-xl font-bold" style={{ color: GREEN, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{v}</p>
@@ -66,7 +66,7 @@ export function LandingPage() {
             ))}
           </div>
         </div>
-        <div className="relative overflow-hidden bg-emerald-50">
+        <div className="relative overflow-hidden bg-emerald-50 rounded-[32px] min-h-[320px] sm:min-h-[420px] md:min-h-full">
           <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=900&h=620&fit=crop&auto=format" alt="Farmer using a tablet in a lush farm field" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(255,255,255,0.15), transparent 60%)" }} />
           <div className="absolute bottom-8 left-8 bg-white rounded-2xl shadow-xl p-4 max-w-[200px]">

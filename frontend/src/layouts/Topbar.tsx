@@ -69,7 +69,7 @@ export function Topbar({ title }: TopbarProps) {
   });
 
   return (
-    <header className="sticky top-0 z-40 flex h-20 items-center justify-between border-b border-border/50 bg-background/80 px-8 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 flex flex-col gap-3 px-5 py-4 border-b border-border/50 bg-background/80 backdrop-blur-xl md:flex-row md:items-center md:justify-between md:px-8 md:py-4">
 
       {/* Left */}
       <div className="space-y-1">

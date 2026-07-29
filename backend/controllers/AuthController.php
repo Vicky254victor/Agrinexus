@@ -8,7 +8,9 @@ require_once __DIR__ . '/../utils/Validator.php';
 
 class AuthController {
     public static function register(): void {
-        $body = json_decode(file_get_contents('php://input'), true) ?? [];
+        $body = Validator::sanitize(json_decode(file_get_contents('php://input'), true) ?? []);
+        $body['email'] = strtolower($body['email'] ?? '');
+        $body['full_name'] = trim($body['full_name'] ?? '');
 
         $v = (new Validator($body))
             ->required('full_name')->required('email')->required('password')->required('role')
@@ -33,7 +35,8 @@ class AuthController {
     }
 
     public static function login(): void {
-        $body = json_decode(file_get_contents('php://input'), true) ?? [];
+        $body = Validator::sanitize(json_decode(file_get_contents('php://input'), true) ?? []);
+        $body['email'] = strtolower($body['email'] ?? '');
 
         $v = (new Validator($body))->required('email')->required('password')->email('email');
         if ($v->fails()) Response::error(implode(', ', $v->errors()));
